@@ -1,0 +1,9 @@
+pluginManagement {
+	repositories {
+		gradlePluginPortal()
+	}
+}
+rootProject.name = 'spring-boot-vincent'
+include 'project-redis'
+include 'project-service'
+
