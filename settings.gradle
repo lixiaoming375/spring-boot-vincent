@@ -6,4 +6,5 @@ pluginManagement {
 rootProject.name = 'spring-boot-vincent'
 include 'project-redis'
 include 'project-service'
+include 'project-quartz'
 

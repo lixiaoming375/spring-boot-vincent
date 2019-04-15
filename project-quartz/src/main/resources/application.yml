@@ -1,0 +1,49 @@
+server:
+  port: 8999
+spring:
+  application:
+    # TODO: 这里配置成实际工程的名字, 作为发布ISB服务的ID.
+    name: project-quarz
+  datasource:
+    url: jdbc:mysql://localhost:3306/quartz?characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  quartz:
+    job-store-type: jdbc
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: project-quarz #XX为对应模块的名字,比如member
+            instanceId: AUTO  #ID设置为自动获取 每一个必须不同 （所有调度器实例中是唯一的）
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX  #数据保存方式为持久化
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate #StdJDBCDelegate说明支持集群
+            tablePrefix: QRTZ_  #quartz内部表的前缀
+            isClustered: true  #是否加入集群
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool #ThreadPool实现的类名
+            threadCount: 10 #线程数量
+            threadPriority: 5 #线程优先级
+            threadsInheritContextClassLoaderOfInitializingThread: true
+#--- custom configurations ---#
+
+
+#如果您不需要将调度命令（例如添加和删除triggers）绑定到其他事务，那么可以通过使用JobStoreTX作为JobStore 来管理事务（这是最常见的选择）。
+#如果您需要Quartz与其他事务（即J2EE应用程序服务器）一起工作，那么您应该使用JobStoreCMT - 在这种情况下，Quartz将让应用程序服务器容器管理事务。
+#  org.quartz.jobStore.class = org.quartz.impl.jdbcjobstore.JobStoreTX
+
+  #需要为JobStore选择一个DriverDelegate （驱动代理）才能使用。DriverDelegate负责执行特定数据库可能需要的任何JDBC工作
+#  org.quartz.jobStore.driverDelegateClass = org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+
+  #使用表前缀配置JDBCJobStore
+#  org.quartz.jobStore.tablePrefix = QRTZ_
+
+  #是否加入集群
+  #Clustering目前与JDBC-Jobstore（JobStoreTX或JobStoreCMT）和TerracottaJobStore一起使用。功能包括负载平衡和 job故障转移（如果JobDetail的“请求恢复”标志设置为true）。
+  #Clustering中的每个实例都应该使用相同的quartz.properties文件。
+  # 这样做的例外是使用相同的属性文件，具有以下允许的异常：不同的线程池大小，以及“org.quartz.scheduler.instanceId”属性的不同值。Clustering中的每个节点必须具有唯一的instanceId，通过将“AUTO”作为此属性的值，可以轻松完成（不需要不同的属性文件）。
+#  org.quartz.jobStore.isClustered =true
