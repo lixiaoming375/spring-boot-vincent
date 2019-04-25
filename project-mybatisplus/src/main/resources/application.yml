@@ -1,0 +1,31 @@
+server:
+  port: 8989
+spring:
+  application:
+  name: project-redis
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/daily-test?characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+
+  redis:
+   host: iac-redis-dev-tech.ikunchi.com
+   port: 30038
+   password:  # 密码 没有则可以不填
+   timeout: 5000
+   lettuce:pool:  # 如果使用的jedis 则将lettuce改成jedis即可\
+     max-active: 8 # 最大活跃链接数 默认8
+     max-idle: 8 # 最大空闲连接数 默认8
+     min-idle: 0 # 最小空闲连接数 默认0
+
+
+mybatis-plus:
+  mapper-locations: classpath:/xml/*Mapper.xml
+  typeEnumsPackage: com.vincent.teng.projectmybatisplus.enums
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+

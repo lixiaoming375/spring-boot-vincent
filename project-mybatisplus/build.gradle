@@ -1,0 +1,16 @@
+apply plugin: 'org.springframework.boot'
+
+
+
+dependencies {
+    compile group:'org.projectlombok',name:'lombok'
+    compile group:'com.baomidou',name:'mybatis-plus-boot-starter',version:'3.0.7.1'
+    compile group: 'com.baomidou',name:'mybatis-plus-generator',version:'3.1.0'    //mybatis-plus 自动生成器
+    compile group: 'org.apache.velocity', name:'velocity-engine-core',version: '2.1' //mybatis-plus 自动生成器 需要
+    compile 'org.springframework.boot:spring-boot-starter-data-redis'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+    compile 'mysql:mysql-connector-java'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+

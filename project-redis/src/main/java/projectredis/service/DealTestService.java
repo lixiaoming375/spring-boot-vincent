@@ -19,8 +19,13 @@ public class DealTestService {
 
     public void doTryLock(String orderId,String threadName){
        String requestId=UUID.randomUUID().toString();
-       if( cacheService.tryLock(orderId, requestId,3,9000)){
+       if( cacheService.tryLock(orderId, requestId,30,900000)){
            for (int i = 0; i <10; i++) {
+               try {
+                   Thread.sleep(500);
+               } catch (InterruptedException e) {
+                   e.printStackTrace();
+               }
                System.out.println("testtest--"+threadName+"--"+i);
            }
            cacheService.releaseLock(orderId,requestId);

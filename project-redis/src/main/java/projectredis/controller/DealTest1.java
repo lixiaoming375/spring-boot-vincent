@@ -38,7 +38,7 @@ public class DealTest1 {
         Runnable runnable=new Runnable() {
             @Override
             public void run() {
-                dealTestService.doTryLock("orderIdwwwwa",Thread.currentThread().getName());
+                dealTestService.doTryLock("orderIdwwwwa9",Thread.currentThread().getName());
             }
         };
         for (int i = 0; i <10 ; i++) {

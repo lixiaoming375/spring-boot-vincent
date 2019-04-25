@@ -23,10 +23,10 @@ public class dealTestServiceTest {
         Runnable runnable=new Runnable() {
             @Override
             public void run() {
-                dealTestService.doTryLock("orderIdIs008",Thread.currentThread().getName());
+                dealTestService.doTryLock("orderIdIs009",Thread.currentThread().getName());
             }
         };
-        for (int i = 0; i <10 ; i++) {
+        for (int i = 0; i <20 ; i++) {
             new Thread(runnable).start();
         }
     }
