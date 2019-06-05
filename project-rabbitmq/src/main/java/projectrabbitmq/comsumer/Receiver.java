@@ -73,4 +73,18 @@ public class Receiver {
         channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
         log.debug("dead message  10s 后 消费消息 {}",new String (message.getBody()));
     }
+
+
+    /**
+     * 监听替补队列 来验证死信.
+     *
+     * @param message the message
+     * @param channel the channel
+     * @throws IOException the io exception  这里异常需要处理
+     */
+    @RabbitListener(queues = {"DL_QUEUE"})
+    public void redirectTest2(Message message, Channel channel) throws IOException {
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+        log.debug("dead message  10s 后 消费消息 {}",new String (message.getBody()));
+    }
 }
