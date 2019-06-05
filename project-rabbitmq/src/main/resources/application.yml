@@ -1,0 +1,31 @@
+server:
+  port: 8989
+spring:
+  application:
+  name: project-rabbitmq
+
+  rabbitmq:
+    username: guest
+    password: guest
+    #    支持发布确认
+    publisher-confirms: true
+    #    支持发布返回
+    publisher-returns: true
+    listener:
+      simple:
+        #      acknowledge-mode
+        #该配置项是用来表示消息确认方式，其有三种配置方式，分别是none、manual和auto。
+        #none意味着没有任何的应答会被发送。
+        #manual意味着监听者必须通过调用Channel.basicAck()来告知所有的消息。
+        #auto意味着容器会自动应答，除非MessageListener抛出异常，这是默认配置方式。
+        acknowledge-mode: manual
+        #        当前监听容器数
+        concurrency: 1
+        #        最大数
+        max-concurrency: 1
+        #        是否支持重试
+        retry:
+          enabled: true
+
+logging:
+  config: classpath:logback.xml

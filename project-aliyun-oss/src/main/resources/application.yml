@@ -1,0 +1,17 @@
+server:
+  port: 8999
+spring:
+  application:
+  name: project-aliyun-oss
+
+aliyun:
+  oss:
+    #    endpoint: http://oss-cn-shanghai.aliyuncs.com
+    endpoint: http://oss-cn-hangzhou.aliyuncs.com  #访问域名
+    access-key-id: LTAI6ktJHgyDreWw
+    access-key-secret: tkcvk1bhiVzyVCcuGNJgnipIwOh1IL
+    prefix-url: -cn-hangzhou.aliyuncs.com/
+    bucket-name: kshop-dev-data    # 存储空间name
+    max-thread-account: 5  #默认最大线程数量
+    part-size: 524288    #分片上传时每片的文件大小 5M
+    max-file-length: 20971520  #上传文件内容不得大于

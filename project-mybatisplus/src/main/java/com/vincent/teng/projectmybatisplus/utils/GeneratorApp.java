@@ -68,7 +68,7 @@ public class GeneratorApp {
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
 //        strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-//        strategy.setInclude(new String[] { "test_lock" }); // 需要生成的表
+        strategy.setInclude(new String[] { "student" }); // 需要生成的表
 //        strategy.setInclude(new String[] { "product_image" }); // 需要生成的表
 //        strategy.setRestControllerStyle(true);
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表

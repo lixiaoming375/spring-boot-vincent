@@ -9,6 +9,9 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
+    hikari:
+      maximum-pool-size: 15
+      connection-timeout: 80000
 
   redis:
    host: iac-redis-dev-tech.ikunchi.com

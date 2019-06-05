@@ -70,9 +70,9 @@ public class ProductImpl extends ServiceImpl<ProductMapper, Product> implements 
 
     //占用
     public  void NumOperateForUnPayOrder(Long productId,String orderCode){
-        Product product=productService.getById(productId);
-        product.setCurrentProductNum(product.getCurrentProductNum()-1);//当前商品数量-1
-        productService.updateById(product);
+//        Product product=productService.getById(productId);
+//        product.setCurrentProductNum(product.getCurrentProductNum()-1);//当前商品数量-1
+//        productService.updateById(product);
         ProductOccupyDetail  productOccupyDetail=ProductOccupyDetail.ProductOccupyDetailBuilder.aProductOccupyDetail()
                 .withProductId(productId)
                 .withOrderCode(orderCode)//通过ordercode唯一标记一条占用明细，释放时ordercode查到该记录

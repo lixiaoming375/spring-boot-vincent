@@ -15,4 +15,5 @@ public interface ProductService extends IService<Product> {
 
 
     void productOccupyOperate(Integer operateType, Long productId, String orderCode);
+
 }

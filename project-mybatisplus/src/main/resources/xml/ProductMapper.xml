@@ -9,4 +9,9 @@
         <result column="current_sold_num" property="currentSoldNum" />
     </resultMap>
 
+    <update id="updateForUnPayOrder" parameterType="java.lang.Long">
+        update product set current_product_num=current_product_num-1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
 </mapper>
