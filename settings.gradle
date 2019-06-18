@@ -10,4 +10,5 @@ include 'project-quartz'
 include 'project-mybatisplus'
 include 'project-aliyun-oss'
 include 'project-rabbitmq'
+include 'project-goodquarz'
 

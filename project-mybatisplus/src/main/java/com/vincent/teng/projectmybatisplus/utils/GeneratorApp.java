@@ -60,16 +60,16 @@ public class GeneratorApp {
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("123456");
-        dsc.setUrl("jdbc:mysql://localhost:3306/daily-test?characterEncoding=utf8&serverTimezone=UTC");
+        dsc.setUrl("jdbc:mysql://localhost:3306/quartz?characterEncoding=utf8&serverTimezone=UTC");
         mpg.setDataSource(dsc);
 
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
-//        strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });// 此处可以修改为您的表前缀
+        strategy.setTablePrefix(new String[] {"t_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "student" }); // 需要生成的表
-//        strategy.setInclude(new String[] { "product_image" }); // 需要生成的表
+//        strategy.setInclude(new String[] { "student" }); // 需要生成的表
+        strategy.setInclude(new String[] { "t_job_config" }); // 需要生成的表
 //        strategy.setRestControllerStyle(true);
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类

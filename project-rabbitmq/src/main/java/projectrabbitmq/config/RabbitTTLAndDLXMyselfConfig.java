@@ -85,5 +85,5 @@ public class RabbitTTLAndDLXMyselfConfig {
         return new Binding("DL_QUEUE", Binding.DestinationType.QUEUE, "DL_EXCHANGE", "DL_ROUTING_KEY", null);
     }
 
- 
+
 }

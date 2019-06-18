@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: project-goodquarz
+  datasource:
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vincent_quartz?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    username: root
+
+  quartz:
+    job-store-type: jdbc
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: project-goodquarz #XX为对应模块的名字,比如member
+            instanceId: AUTO  #ID设置为自动获取 每一个必须不同 （所有调度器实例中是唯一的）
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX  #数据保存方式为持久化
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate #StdJDBCDelegate说明支持集群
+            tablePrefix: QRTZ_  #quartz内部表的前缀
+            isClustered: true  #是否加入集群
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool #ThreadPool实现的类名
+            threadCount: 10 #线程数量
+            threadPriority: 5 #线程优先级
+            threadsInheritContextClassLoaderOfInitializingThread: true
+server:
+  port: 8996
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:/xml/*Mapper.xml
+
+
+
