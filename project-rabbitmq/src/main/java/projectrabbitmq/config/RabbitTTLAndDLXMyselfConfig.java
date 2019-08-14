@@ -44,6 +44,7 @@ public class RabbitTTLAndDLXMyselfConfig {
         args.put(DEAD_LETTER_QUEUE_KEY, "DL_EXCHANGE");
         // x-dead-letter-routing-key    声明 死信路由键
         args.put(DEAD_LETTER_ROUTING_KEY, "DL_ROUTING_KEY");
+//        args.put("x-message-ttl",5000);
         return QueueBuilder.durable("EMAIL_QUEUE").withArguments(args).build();
     }
 

@@ -47,6 +47,11 @@ public class SendController {
     public ResponseEntity direct(String p) {
         CorrelationData correlationData = new CorrelationData(UUID.randomUUID().toString());
 
+        MessagePostProcessor messagePostProcessor=message -> {
+          MessageProperties messageProperties = message.getMessageProperties();
+            messageProperties.setDeliveryMode(MessageProperties.DEFAULT_DELIVERY_MODE); //设置发送消息持久化
+          return message;
+        };
         rabbitTemplate.convertAndSend("DIRECT_EXCHANGE", "DIRECT_ROUTING_KEY", p, correlationData);
         return ResponseEntity.ok();
     }

@@ -6,6 +6,9 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author tengxiao
  * @Description:  用于定义exchange和queue  以及exchange和队列的绑定关系

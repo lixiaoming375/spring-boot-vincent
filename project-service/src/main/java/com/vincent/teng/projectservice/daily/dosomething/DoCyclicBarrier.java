@@ -11,10 +11,14 @@ import java.util.concurrent.CyclicBarrier;
 public class DoCyclicBarrier {
 
     public static void main(String[] args) {
-        int N = 4;
-        CyclicBarrier barrier  = new CyclicBarrier(N);
-        for(int i=0;i<N;i++)
-            new Writer(barrier).start();
+//        int N = 4;
+//        CyclicBarrier barrier  = new CyclicBarrier(N);
+//        for(int i=0;i<N;i++)
+//            new Writer(barrier).start();
+        Long a=100L;
+        int b=0;
+        System.out.println( a/b);;
+        ;
     }
 
     static class  Writer extends Thread{
