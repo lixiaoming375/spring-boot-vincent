@@ -1,4 +1,4 @@
-package com.vincent.teng.projectservice.daily.dosomething;
+package com.vincent.teng.projectservice.daily.dothread;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -11,13 +11,10 @@ import java.util.concurrent.CyclicBarrier;
 public class DoCyclicBarrier {
 
     public static void main(String[] args) {
-//        int N = 4;
-//        CyclicBarrier barrier  = new CyclicBarrier(N);
-//        for(int i=0;i<N;i++)
-//            new Writer(barrier).start();
-        Long a=100L;
-        int b=0;
-        System.out.println( a/b);;
+        int N = 4;
+        CyclicBarrier barrier  = new CyclicBarrier(N);
+        for(int i=0;i<N;i++)
+            new Writer(barrier).start();
         ;
     }
 

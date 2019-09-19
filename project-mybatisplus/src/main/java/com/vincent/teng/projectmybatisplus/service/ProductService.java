@@ -13,7 +13,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ProductService extends IService<Product> {
 
-
     void productOccupyOperate(Integer operateType, Long productId, String orderCode);
 
 }

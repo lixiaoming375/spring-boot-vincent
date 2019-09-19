@@ -1,4 +1,4 @@
-package com.vincent.teng.projectservice.daily.dosomething;
+package com.vincent.teng.projectservice.daily.dothread;
 
 import java.util.concurrent.CountDownLatch;
 
