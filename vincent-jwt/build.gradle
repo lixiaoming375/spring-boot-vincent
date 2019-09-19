@@ -1,0 +1,9 @@
+apply plugin: 'org.springframework.boot'
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'io.jsonwebtoken:jjwt:0.9.0'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.60'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
