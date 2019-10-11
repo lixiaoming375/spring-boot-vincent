@@ -2,6 +2,8 @@ apply plugin: 'org.springframework.boot'
 
 
 dependencies {
+    implementation 'com.google.guava:guava:18.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+ 
